@@ -1,0 +1,19 @@
+.verticalLine {
+    border-left: thick solid #ff0000;
+  }
+  .vl {
+    border-right: 6px solid green;
+    height: 500px;
+    position: absolute;
+    right: 50%;
+    margin-right: -3px;
+    top: 0;
+  }
+  .v2 {
+    border-left: 6px solid green;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+  }

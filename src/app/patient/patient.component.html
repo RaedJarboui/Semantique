@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">num</th>
+        <th scope="col">nom</th>
+        <th scope="col">age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let p of patients;let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{p.nom.value}}</td>
+        <td>{{p.age.value}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
