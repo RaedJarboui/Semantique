@@ -9,9 +9,13 @@ import { HopitalComponent } from './hopital/hopital.component';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { ServiceComponent } from './service/service.component';
 
 const routes: Routes = [
-  { path: '', component:PatientComponent},
+  { path: '', component:HomeComponent},
   { path: 'patient', component: PatientComponent  },
   { path: 'personnel', component:PersonnelComponent  },
   { path: 'hopital', component: HopitalComponent  },
@@ -30,7 +34,11 @@ const routes: Routes = [
     HeaderComponent,
     PatientComponent,
     PersonnelComponent,
-    HopitalComponent
+    HopitalComponent,
+    HomeComponent,
+    FooterComponent,
+    AboutComponent,
+    ServiceComponent
 
   ],
   imports: [

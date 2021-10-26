@@ -10,13 +10,42 @@ export class PatientComponent implements OnInit {
   patients:any=[]
 
   constructor(private http:HttpClient) { }
+   selectedValue;
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3030/raed/sparql?query=PREFIX+ns%3A+%3Chttp%3A%2F%2Fwww.semanticweb.org%2Fimene%2Fontologies%2F2021%2F9%2Funtitled-ontology-9%23%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0ASELECT+%3FPatient+%3Fnom+%3Fage%0AWHERE+%7B%0A++++++++%3FPatient+rdf%3Atype+ns%3APatient.%0A++++++++%3FPatient+ns%3Anom+%3Fnom+.%0A++%09%09%3FPatient+ns%3Aage+%3Fage+.%0A+++++%0A%7D%0A%0A&output=json').subscribe((data)=>{
+    this.http.get('http://localhost:3030/raed/sparql?query=PREFIX+ns%3A+%3Chttp%3A%2F%2Fwww.semanticweb.org%2Fimene%2Fontologies%2F2021%2F9%2Funtitled-ontology-9%23%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0ASELECT+%3Fpatient+%3Fnom+%3Fage%0AWHERE+%7B%0A++++++++%3Fpatient+rdf%3Atype+ns%3APatient.%0A++%09%09%3Fpatient+ns%3Anom+%3Fnom+.%0A++++++++%3Fpatient+ns%3Aage+%3Fage+.%0A++++++++%0A%7D%0AORDER+BY+(+%3Fage)&output=json').subscribe((data)=>{
       console.log(data.results.bindings)
       this.patients=data.results.bindings
       console.log(this.patients)
     })
+     
+ 
   }
+  public onChange(event): void {  // event will give you full breif of action
+    const newVal = event.target.value;
+    console.log(newVal);
+    if(newVal == "m"){
+      this.http.get('http://localhost:3030/raed/sparql?query=PREFIX+ns%3A+%3Chttp%3A%2F%2Fwww.semanticweb.org%2Fimene%2Fontologies%2F2021%2F9%2Funtitled-ontology-9%23%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0ASELECT+%3FPatient+%3Fnom+%3Fage%0AWHERE+%7B%0A++++++++%3FPatient+rdf%3Atype+ns%3AMasculin.%0A++++++++%3FPatient+ns%3Anom+%3Fnom+.%0A++%09%09%3FPatient+ns%3Aage+%3Fage+.%0A+++++%0A%7D%0A%0A&output=json').subscribe((data)=>{
+      console.log(data.results.bindings)
+      this.patients=data.results.bindings
+      console.log(this.patients)
+    })
+
+    }else if(newVal == "f"){
+      this.http.get('http://localhost:3030/raed/sparql?query=PREFIX+ns%3A+%3Chttp%3A%2F%2Fwww.semanticweb.org%2Fimene%2Fontologies%2F2021%2F9%2Funtitled-ontology-9%23%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0ASELECT+%3FPatient+%3Fnom+%3Fage%0AWHERE+%7B%0A++++++++%3FPatient+rdf%3Atype+ns%3AFeminin.%0A++++++++%3FPatient+ns%3Anom+%3Fnom+.%0A++%09%09%3FPatient+ns%3Aage+%3Fage+.%0A+++++%0A%7D%0A%0A&output=json').subscribe((data)=>{
+      console.log(data.results.bindings)
+      this.patients=data.results.bindings
+      console.log(this.patients)
+    }) 
+  }else if(newVal == "a"){
+    this.http.get('http://localhost:3030/raed/sparql?query=PREFIX+ns%3A+%3Chttp%3A%2F%2Fwww.semanticweb.org%2Fimene%2Fontologies%2F2021%2F9%2Funtitled-ontology-9%23%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0ASELECT+%3FPatient+%3Fnom+%3Fage%0AWHERE+%7B%0A++++++++%3FPatient+rdf%3Atype+ns%3APatient.%0A++++++++%3FPatient+ns%3Anom+%3Fnom+.%0A++%09%09%3FPatient+ns%3Aage+%3Fage+.%0A+++++%0A%7D%0A%0A&output=json').subscribe((data)=>{
+      console.log(data.results.bindings)
+      this.patients=data.results.bindings
+      console.log(this.patients)
+    }) 
+}
+}
+   
+
 
 }

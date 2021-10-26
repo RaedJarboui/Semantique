@@ -1,17 +1,47 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">num</th>
-        <th scope="col">nom</th>
-       
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor ="let p of personnel;let i = index">
-        <th scope="row">{{i}}</th>
-        <td>{{p.nom.value}}</td>
+<!-- ======= Appointment Section ======= -->
+<section id="appointment" class="appointment section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>List des Personnels</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+    <table border="2" class="table table-striped ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">num</th>
+          <th scope="col">nom</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor ="let p of personnel;let i = index">
+          <th scope="row">{{i}}</th>
+          <td>{{p.nom.value}}</td>
+          
+        </tr>
         
-      </tr>
-      
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  
+    <select (change)="onChange($event)">
+      <option value="m">Medecin</option>
+      <option value="h">AgentHospitalier</option>
+      <option value="t">AgentTechnique</option>
+      <option value="s">AideSoignant </option>
+      <option value="i">Infirmier</option>
+    
+    
+    </select>
+
+  </div>
+</section><!-- End Appointment Section -->
+
+
+
+
+
+
+
+
+
